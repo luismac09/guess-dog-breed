@@ -1,0 +1,13 @@
+:root {
+   --lightred: hsl(356, 83%, 57%);
+   --darkblue: hsl(247, 37%, 14%);
+   --palered: hsl(0, 13%, 85%);
+   --palegreen: hsl(176, 57%, 65%);
+}
+body {
+   margin: 0;
+   font-family: 'Roboto', sans-serif;
+   background-color: var(--palered);
+   color: var(--darkblue);
+   font-size: 12px;
+}
