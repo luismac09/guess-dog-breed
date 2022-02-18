@@ -21,9 +21,14 @@ export default {
    max-width: 1200px;
    margin-right: auto;
    margin-left: auto;
-   text-align: center;
+}
+@media screen and (min-width: 1024px) {
+   .wrapper {
+      margin-top: 6em;
+   }
 }
 .title {
    font-size: 1.8em;
+   text-align: center;
 }
 </style>

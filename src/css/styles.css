@@ -2,11 +2,13 @@
    --lightred: hsl(356, 83%, 57%);
    --darkblue: hsl(247, 37%, 14%);
    --palered: hsl(0, 13%, 85%);
-   --palegreen: hsl(176, 57%, 65%);
+   --lightblue: hsl(176, 57%, 65%);
+   --lightgreen: hsl(104, 42%, 67%);
+   --primaryfont: 'Roboto', sans-serif;
 }
 body {
    margin: 0;
-   font-family: 'Roboto', sans-serif;
+   font-family: var(--primaryfont);
    background-color: var(--palered);
    color: var(--darkblue);
    font-size: 12px;
