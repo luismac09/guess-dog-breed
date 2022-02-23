@@ -8,6 +8,8 @@
 <script>
 import DogPicture from '../components/DogPicture.vue'
 import DogOptions from '../components/DogOptions.vue'
+import getDogs from '../helpers/getDogs'
+getDogs()
 export default {
    components: {
       DogPicture,
