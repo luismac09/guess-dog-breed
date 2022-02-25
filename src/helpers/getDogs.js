@@ -12,7 +12,7 @@ const getDogs = async () => {
 }
 const getDogData = async ([d1, d2, d3, d4] = []) => {
    const { data } = await requestDogApi.get()
-   const dogNames = [
+   const dogData = [
       {
          id: data[d1].id,
          name: data[d1].name,
@@ -34,6 +34,6 @@ const getDogData = async ([d1, d2, d3, d4] = []) => {
          url: data[d4].image.url,
       },
    ]
-   return dogNames
+   return dogData
 }
 export default getDogs

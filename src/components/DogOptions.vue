@@ -1,25 +1,11 @@
 <template>
    <div class="container">
       <ul class="list">
-         <li class="list__item">
-            <span class="number">1</span
-            ><button type="button" class="button button--lightgreen">
-               Bulldog
+         <li class="list__item" v-for="(dog, index) in dogs" :key="dog.id">
+            <span class="number">{{ index + 1 }}</span
+            ><button type="button" class="button">
+               {{ dog.name }}
             </button>
-         </li>
-         <li class="list__item">
-            <span class="number">2</span
-            ><button type="button" class="button">Chihuahua</button>
-         </li>
-         <li class="list__item">
-            <span class="number">3</span
-            ><button type="button" class="button button--lightred">
-               Golden Retriever
-            </button>
-         </li>
-         <li class="list__item">
-            <span class="number">4</span
-            ><button type="button" class="button">Schipperke</button>
          </li>
       </ul>
       <div class="box">
@@ -43,7 +29,14 @@
    </div>
 </template>
 <script>
-export default {}
+export default {
+   props: {
+      dogs: {
+         type: Array,
+         required: true,
+      },
+   },
+}
 </script>
 <style scoped>
 .container {
@@ -77,7 +70,6 @@ export default {}
 }
 .button {
    width: 100%;
-   max-width: 350px;
    border: none;
    padding: 1em 3em;
    border-radius: 2em;
@@ -109,11 +101,12 @@ export default {}
    .button:hover {
       cursor: pointer;
       opacity: 70%;
+      background-color: var(--lightblue);
    }
 }
 
 .box {
-   width: 250px;
+   max-width: 250px;
    margin-left: auto;
    margin-right: auto;
 }

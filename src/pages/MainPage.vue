@@ -1,19 +1,35 @@
 <template>
-   <div class="wrapper">
+   <div class="wrapper" v-if="dogUrl">
       <h1 class="title">Can you guess what breed of dog it is?</h1>
-      <DogPicture />
-      <DogOptions />
+      <DogPicture :dog="dogUrl" />
+      <DogOptions :dogs="dogList" />
    </div>
 </template>
 <script>
 import DogPicture from '@/components/DogPicture.vue'
 import DogOptions from '@/components/DogOptions.vue'
 import getDogs from '@/helpers/getDogs'
-console.log(getDogs())
+
 export default {
    components: {
       DogPicture,
       DogOptions,
+   },
+   data() {
+      return {
+         dogList: [],
+         dogUrl: null,
+      }
+   },
+   methods: {
+      async mixDogs() {
+         this.dogList = await getDogs()
+         const randomPosition = Math.floor(Math.random() * 4)
+         this.dogUrl = this.dogList[randomPosition].url
+      },
+   },
+   mounted() {
+      this.mixDogs()
    },
 }
 </script>
