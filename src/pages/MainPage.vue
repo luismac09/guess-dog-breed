@@ -6,10 +6,10 @@
    </div>
 </template>
 <script>
-import DogPicture from '../components/DogPicture.vue'
-import DogOptions from '../components/DogOptions.vue'
-import getDogs from '../helpers/getDogs'
-getDogs()
+import DogPicture from '@/components/DogPicture.vue'
+import DogOptions from '@/components/DogOptions.vue'
+import getDogs from '@/helpers/getDogs'
+console.log(getDogs())
 export default {
    components: {
       DogPicture,
