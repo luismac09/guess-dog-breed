@@ -3,29 +3,15 @@
       <ul class="list">
          <li class="list__item" v-for="(dog, index) in dogs" :key="dog.id">
             <span class="number">{{ index + 1 }}</span
-            ><button type="button" class="button">
+            ><button
+               type="button"
+               class="button"
+               @click="$emit('selection', dog.img)"
+            >
                {{ dog.name }}
             </button>
          </li>
       </ul>
-      <div class="box">
-         <div class="box__item">
-            <button
-               type="button"
-               class="button button--reset button--theme button--text"
-            >
-               reboot
-            </button>
-         </div>
-         <div class="box__item">
-            <button
-               type="button"
-               class="button button--continue button--theme button--text"
-            >
-               Continue
-            </button>
-         </div>
-      </div>
    </div>
 </template>
 <script>
@@ -86,13 +72,7 @@ export default {
 .button--lightgreen {
    background-color: var(--lightgreen);
 }
-.button--theme {
-   background-color: var(--darkblue);
-   color: var(--palered);
-}
-.button--text {
-   text-transform: uppercase;
-}
+
 .button:active {
    outline: 2px solid var(--palegreen);
 }
@@ -100,18 +80,8 @@ export default {
 @media (hover: hover) {
    .button:hover {
       cursor: pointer;
-      opacity: 70%;
+      opacity: 80%;
       background-color: var(--lightblue);
    }
-}
-
-.box {
-   max-width: 250px;
-   margin-left: auto;
-   margin-right: auto;
-}
-.box__item {
-   margin-bottom: 1em;
-   font-size: 1.1em;
 }
 </style>

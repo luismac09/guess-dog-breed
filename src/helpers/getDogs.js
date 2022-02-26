@@ -16,22 +16,34 @@ const getDogData = async ([d1, d2, d3, d4] = []) => {
       {
          id: data[d1].id,
          name: data[d1].name,
-         url: data[d1].image.url,
+         img: {
+            url: data[d1].image.url,
+            id: data[d1].image.id,
+         },
       },
       {
          id: data[d2].id,
          name: data[d2].name,
-         url: data[d2].image.url,
+         img: {
+            url: data[d2].image.url,
+            id: data[d2].image.id,
+         },
       },
       {
          id: data[d3].id,
          name: data[d3].name,
-         url: data[d3].image.url,
+         img: {
+            url: data[d3].image.url,
+            id: data[d3].image.id,
+         },
       },
       {
          id: data[d4].id,
          name: data[d4].name,
-         url: data[d4].image.url,
+         img: {
+            url: data[d4].image.url,
+            id: data[d4].image.id,
+         },
       },
    ]
    return dogData
