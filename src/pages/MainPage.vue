@@ -4,20 +4,14 @@
       <DogPicture :dog="dogUrl" />
       <DogOptions :dogs="dogs" @selection="checkAnswer($event)" />
 
-      <div class="box" v-if="showAnswer">
+      <div class="box">
          <p class="message">{{ message }}</p>
          <div class="box__item">
             <button
-               type="button"
-               class="button button--reset button--theme button--text"
-            >
-               reboot
-            </button>
-         </div>
-         <div class="box__item">
-            <button
+               v-if="showButton"
                type="button"
                class="button button--continue button--theme button--text"
+               @click="continueGame()"
             >
                Continue
             </button>
@@ -40,6 +34,7 @@ export default {
          dogs: [],
          dogUrl: null,
          showAnswer: false,
+         showButton: false,
          message: '',
       }
    },
@@ -52,10 +47,18 @@ export default {
       checkAnswer(selectedDog) {
          this.showAnswer = true
          if (this.dogUrl.indexOf(selectedDog.id) > -1) {
-            this.message = `Correcto `
+            this.message = `Correcto   `
+            this.showButton = true
          } else {
             this.message = `Incorrecto`
          }
+      },
+      continueGame() {
+         this.dogs = []
+         this.dogUrl = null
+         this.showAnswer = false
+         this.message = ''
+         this.mixDogs()
       },
    },
    mounted() {
@@ -112,6 +115,7 @@ export default {
 }
 @media (hover: hover) {
    .button--theme:hover {
+      cursor: pointer;
       background-color: var(--darkblue);
       color: var(--palered);
    }
