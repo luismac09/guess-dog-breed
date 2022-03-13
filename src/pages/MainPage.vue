@@ -33,9 +33,11 @@ export default {
       return {
          dogs: [],
          dogUrl: null,
+         dogName: null,
          showAnswer: false,
          showButton: false,
          message: '',
+         activeColor: null,
       }
    },
    methods: {
@@ -43,14 +45,15 @@ export default {
          this.dogs = await getDogs()
          const randomPosition = Math.floor(Math.random() * 4)
          this.dogUrl = this.dogs[randomPosition].img.url
+         this.dogName = this.dogs[randomPosition].name
       },
       checkAnswer(selectedDog) {
          this.showAnswer = true
          if (this.dogUrl.indexOf(selectedDog.id) > -1) {
-            this.message = `Correcto   `
+            this.message = `Correcto , es ${this.dogName} `
             this.showButton = true
          } else {
-            this.message = `Incorrecto`
+            this.message = `Incorrecto, era ${this.dogName}`
          }
       },
       continueGame() {
@@ -58,6 +61,7 @@ export default {
          this.dogUrl = null
          this.showAnswer = false
          this.message = ''
+         this.showButton = false
          this.mixDogs()
       },
    },
@@ -92,7 +96,7 @@ export default {
    font-size: 1.1em;
 }
 .message {
-   font-size: 1.5rem;
+   font-size: 1.2rem;
 }
 .button {
    width: 100%;
