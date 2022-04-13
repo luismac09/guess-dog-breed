@@ -1,13 +1,6 @@
-<template>
-   <MainPage />
-</template>
-<script>
+<script setup>
 import MainPage from '@/pages/MainPage.vue'
-export default {
-   name: 'App',
-   components: {
-      MainPage,
-   },
-}
 </script>
-<style></style>
+<template>
+	<MainPage />
+</template>

@@ -1,14 +1,10 @@
 import axios from 'axios'
-import config from './config'
-const key = config.KEY_VALUE
-const name = config.KEY_NAME
-const url = config.API_URL
-
+import CONFIG from './config'
 const dogApi = axios.create({
-   baseURL: url,
-   headers: {
-      name: key,
-   },
+	baseURL: CONFIG.apiurl,
+	headers: {
+		'x-api-key': CONFIG.apikey
+	}
 })
 
 export default dogApi
