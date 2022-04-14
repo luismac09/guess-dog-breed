@@ -6,11 +6,20 @@ Actualmente en fase inicial de desarrollo
 
 # how to use?
 
+To use the api: [register for free](https://thedogapi.com/)
+
+**Do not forget to create an .env.local file to save your api key. Do not upload it to git only maintain locally.**
+
+for more information [how use env files in vite](https://vitejs.dev/guide/env-and-mode.html#env-variables)
+
 I recommend using pnpm an efficient package manager
 
 [Install pnpm](https://pnpm.io/installation)
 
-After you have installed it run the following commands
+Then install nodejs with pnpm
+[Install node](https://pnpm.io/cli/env)
+
+After run the following commands in your project directory.
 
 - pnpm install
 - pnpm dev
