@@ -1,9 +1,8 @@
 import axios from 'axios'
-import CONFIG from './config'
 const dogApi = axios.create({
-	baseURL: CONFIG.apiurl,
+	baseURL: import.meta.env.VITE_API_URL,
 	headers: {
-		'x-api-key': CONFIG.apikey
+		'x-api-key': import.meta.env.VITE_API_KEY
 	}
 })
 
