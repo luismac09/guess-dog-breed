@@ -1,20 +1,23 @@
 <template>
-	<div v-if="dogUrl" class="wrapper">
-		<h1 class="title">Can you guess what breed of dog it is?</h1>
-		<DogPicture :dog="dogUrl" />
-		<DogOptions :dogs="dogs" @selection="checkAnswer($event)" />
+	<div class="wrapper">
+		<div v-if="!dogUrl" class="spinner"></div>
+		<div v-else>
+			<h1 class="title">Can you guess what breed of dog it is?</h1>
+			<DogPicture :dog="dogUrl" />
+			<DogOptions :dogs="dogs" @selection="checkAnswer($event)" />
 
-		<div class="box">
-			<p class="message">{{ message }}</p>
-			<div class="box__item">
-				<button
-					v-if="showButton"
-					type="button"
-					class="button button--continue button--theme button--text"
-					@click="continueGame()"
-				>
-					Continue
-				</button>
+			<div class="box">
+				<p class="message">{{ message }}</p>
+				<div class="box__item">
+					<button
+						v-if="showButton"
+						type="button"
+						class="button button--continue button--theme button--text"
+						@click="continueGame()"
+					>
+						Continue
+					</button>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -122,6 +125,24 @@ export default {
 		cursor: pointer;
 		background-color: var(--darkblue);
 		color: var(--palered);
+	}
+}
+.spinner {
+	margin: 18em auto 0;
+	border: 4px solid rgba(201, 138, 122, 0.1);
+	border-left-color: rgb(255, 81, 0);
+	border-radius: 50%;
+	width: 36px;
+	height: 36px;
+	animation: spin 1s linear infinite;
+}
+@keyframes spin {
+	0% {
+		transform: rotate(0deg);
+	}
+
+	100% {
+		transform: rotate(360deg);
 	}
 }
 </style>
